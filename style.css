@@ -1,0 +1,218 @@
+:root {
+  --bg: #fffef9;
+  --text: #2d2d2d;
+  --card-bg: #ffffff;
+  --hover-bg: #f9f5e9;
+  --border: #ddd;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+body.dark {
+  --bg: #1e1e1e;
+  --text: #f2f2f2;
+  --card-bg: #2a2a2a;
+  --hover-bg: #3b3b3b;
+  --border: #444;
+  --shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  z-index: -1;
+  background: url('https://www.transparenttextures.com/patterns/graphy.png'), radial-gradient(circle at top right, #fdfbfb, #ebedee);
+  animation: floatBackground 20s infinite alternate ease-in-out;
+  opacity: 0.1;
+  background-size: cover;
+}
+
+@keyframes floatBackground {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, 30px); }
+}
+
+.wrapper {
+  max-width: 700px;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background: #f6c177;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #e3a651;
+  transform: scale(1.05);
+}
+
+.notebook {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  border: 1px dashed var(--border);
+}
+
+h1 {
+  font-family: 'Caveat', cursive;
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+#streakDisplay {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #f97316;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.task input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #aaa;
+  border-radius: 6px;
+  margin-right: 1rem;
+  cursor: pointer;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.2),
+              inset -2px -2px 4px rgba(255,255,255,0.7);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+body.dark .task input[type="checkbox"] {
+  background: linear-gradient(145deg, #2f2f2f, #3a3a3a);
+  border: 2px solid #666;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.4),
+              inset -1px -1px 3px rgba(255,255,255,0.05);
+}
+
+.task input[type="checkbox"]:checked {
+  background: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 0 4px #10b98188;
+}
+
+.task input[type="checkbox"]:checked::after {
+  content: '✔';
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  font-size: 1rem;
+  left: 4px;
+  top: 0px;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 1.1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.task-text.checked {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.delete-task {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.delete-task:hover {
+  transform: scale(1.2);
+}
+
+.note {
+  font-size: 0.9rem;
+  color: gray;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  .task-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .task-text {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+  }
+}

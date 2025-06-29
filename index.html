@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joyful Daily Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="controls">
+      <button id="addTask">➕ Add Task</button>
+      <button id="clearTasks">🗑️ Clear All</button>
+      <button id="toggleTheme"><span id="themeIcon">🌙</span> Dark Mode</button>
+      <button id="resetStreak">🔁 Reset Streak</button>
+      <button id="rateApp">⭐ Rate Us</button>
+    </div>
+
+    <div class="notebook">
+      <h1>📘 DAILY PLANNER</h1>
+      <div id="streakDisplay">🔥 Streak: 0 days</div>
+      <div id="taskList"></div>
+      <p class="note">✅ Check tasks when done — come back daily to keep your streak!</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
